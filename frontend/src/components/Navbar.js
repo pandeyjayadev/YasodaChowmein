@@ -8,8 +8,17 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('');
+  const [isHomePage, setIsHomePage] = useState(true);
 
   useEffect(() => {
+    // Check if we're on home page
+    const checkHomePage = () => {
+      const isHome = window.location.pathname === '/' || window.location.pathname === '';
+      setIsHomePage(isHome);
+    };
+
+    checkHomePage();
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
       // Update active link based on scroll position
@@ -21,16 +30,29 @@ export default function Navbar() {
         }
       });
     };
+
+    // Listen for route changes (for client-side navigation)
+    const handleRouteChange = () => {
+      setTimeout(checkHomePage, 100); // Small delay to ensure route has changed
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('popstate', handleRouteChange);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('popstate', handleRouteChange);
+    };
   }, []);
 
+  // Determine navbar style based on page and scroll position
+  const shouldUseTransparentStyle = isHomePage && !scrolled;
+  const shouldUseWhiteBackground = !isHomePage || scrolled;
   const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/#menu', label: 'Menu' },
+    { href: '/products', label: 'Product' },
     { href: '/about', label: 'About' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/blog', label: 'Blog' },
@@ -48,8 +70,8 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-sm py-2 border-b border-gray-100' 
+        shouldUseWhiteBackground
+          ? 'bg-white/98 backdrop-blur-lg shadow-lg py-2 border-b border-gray-200/50' 
           : 'bg-transparent py-4'
       }`}
     >
@@ -60,12 +82,12 @@ export default function Navbar() {
             <Link 
               href="/" 
               className="flex items-center space-x-2"
-              onClick={closeMenu}
+              onClick={() => handleNavClick('/')}
             >
               <span className={`text-2xl font-extrabold tracking-tight transition-all duration-300 ${
-                scrolled
-                  ? 'text-orange-500 hover:text-orange-600'
-                  : 'text-white drop-shadow-md'
+                shouldUseTransparentStyle
+                  ? 'text-white drop-shadow-lg hover:text-amber-200'
+                  : 'text-orange-600 hover:text-orange-700'
               }`}>
                 Yasoda Chowmein
               </span>
@@ -73,7 +95,11 @@ export default function Navbar() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.3 }}
-                className="px-2 py-1 text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"
+                className={`px-2 py-1 text-xs font-semibold rounded-full transition-all duration-300 ${
+                  shouldUseTransparentStyle
+                    ? 'text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg'
+                    : 'text-white bg-gradient-to-r from-orange-500 to-amber-500'
+                }`}
               >
                 BETA
               </motion.span>
@@ -91,20 +117,19 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={`relative px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-                    scrolled 
-                      ? 'text-gray-700 hover:text-orange-600' 
-                      : 'text-white hover:text-amber-200'
+                    shouldUseTransparentStyle
+                      ? 'text-white hover:text-amber-200 hover:bg-white/10 drop-shadow-sm'
+                      : 'text-orange-600 hover:text-orange-700 hover:bg-orange-50' 
                   }`}
-                  onClick={() => {
-                    closeMenu();
-                    setActiveLink(item.href);
-                  }}
+                  onClick={() => handleNavClick(item.href)}
                 >
                   {item.label}
                   {activeLink === item.href && (
                     <motion.span 
                       layoutId="activeIndicator"
-                      className="absolute left-0 right-0 -bottom-1 h-0.5 bg-orange-500"
+                      className={`absolute left-0 right-0 -bottom-1 h-0.5 rounded-full ${
+                        shouldUseTransparentStyle ? 'bg-white shadow-sm' : 'bg-orange-500'
+                      }`}
                       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                     />
                   )}
@@ -114,10 +139,10 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/order"
-                className={`ml-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-                  scrolled
-                    ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md hover:shadow-lg'
-                    : 'bg-white text-orange-600 shadow-md hover:shadow-lg'
+                className={`ml-2 px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                  shouldUseTransparentStyle
+                    ? 'bg-white text-orange-600 shadow-lg hover:shadow-xl hover:bg-gray-50'
+                    : 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md hover:shadow-xl hover:from-orange-600 hover:to-amber-600'
                 }`}
               >
                 Order Now
@@ -130,20 +155,20 @@ export default function Navbar() {
             <motion.button
               onClick={toggleMenu}
               whileTap={{ scale: 0.9 }}
-              className={`p-2 rounded-lg transition-all ${
-                scrolled 
-                  ? 'text-gray-700 hover:bg-gray-100' 
-                  : 'text-white hover:bg-white/20'
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                shouldUseTransparentStyle
+                  ? 'text-white hover:bg-white/20 backdrop-blur-sm border border-white/20'
+                  : 'text-orange-600 hover:bg-orange-50 border border-orange-200' 
               }`}
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
             </motion.button>
@@ -159,7 +184,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-white shadow-lg"
+            className="md:hidden overflow-hidden bg-white/98 backdrop-blur-lg shadow-xl border-t border-gray-200/50"
           >
             <motion.div 
               className="px-4 py-8 space-y-6 flex flex-col items-center"
@@ -183,8 +208,8 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="block px-4 py-4 text-xl font-medium text-gray-800 hover:text-orange-600 transition-colors"
-                    onClick={closeMenu}
+                    className="block px-4 py-4 text-xl font-semibold text-orange-600 hover:text-orange-700 hover:bg-orange-50 rounded-lg transition-all duration-300"
+                    onClick={() => handleNavClick(item.href)}
                   >
                     {item.label}
                   </Link>
@@ -196,8 +221,8 @@ export default function Navbar() {
               >
                 <Link
                   href="/order"
-                  className="block px-6 py-4 text-xl font-medium text-center bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg shadow-md hover:shadow-lg transition-all"
-                  onClick={closeMenu}
+                  className="block px-6 py-4 text-xl font-semibold text-center bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300"
+                  onClick={() => handleNavClick('/order')}
                 >
                   Order Now
                 </Link>

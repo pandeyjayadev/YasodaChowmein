@@ -25,14 +25,6 @@ export default function Footer() {
         { href: '/contact', label: 'Contact' },
       ],
     },
-    // {
-    //   title: 'Legal',
-    //   links: [
-    //     { href: '/privacy', label: 'Privacy Policy' },
-    //     { href: '/terms', label: 'Terms of Service' },
-    //     { href: '/cookies', label: 'Cookie Policy' },
-    //   ],
-    // },
   ];
 
   const socialLinks = [
@@ -43,9 +35,9 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    { icon: <FaPhoneAlt />, text: '+977 123-4567' },
+    { icon: <FaPhoneAlt />, text: '+977 9804583067' },
     { icon: <FaEnvelope />, text: 'Hemanta2070@gmail.com' },
-    { icon: <FaMapMarkerAlt />, text: 'Bardiya, Nepal' },
+    { icon: <FaMapMarkerAlt />, text: 'Madhuban, 06, Sanoshree, Bardiya, Nepal' },
   ];
 
   return (

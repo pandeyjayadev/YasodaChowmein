@@ -78,7 +78,7 @@ export default function BlogPostPage({ postId }) {
       )}
 
       {/* Navigation */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-25">
         <Link 
           href="/blog" 
           className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"

@@ -63,17 +63,16 @@ export default function OurStory() {
           </div>
 
           {/* Product Image (Right) */}
-          <div className="relative h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+          <div className="relative h-90 md:h-106 lg:h-[500px] rounded-2xl overflow-hidden">
             <Image
-              src="/assets/images/NAM04996.webp" // Update with your image path
+              src="/assets/images/spaghetti-316525_1280.jpg" // Update with your image path
               alt="Yasoda Special Chowmein"
               fill
               className="object-cover"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 text-white">
-              <span className="block text-sm font-light">Signature Dish</span>
+            <div className="absolute bottom-7 left-6 text-white">
               <span className="text-2xl font-bold">Yasoda Special Chowmein</span>
             </div>
           </div>

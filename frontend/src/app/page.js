@@ -1,6 +1,6 @@
 import HeroSection from "../components/Hero";
 import OurStory from "../components/OurStory";
-import FeaturedProducts from "../components/ProductCard";
+import FeaturedProducts from "../components/FeaturedProducts";
 import AboutPreview from "../components/About";
 import BlogSection from "../components/blog";
 
