@@ -12,7 +12,7 @@ export default function ContactAbout() {
             Find <span className="text-orange-500">Us</span>
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Visit our factory or get in touch—we'd love to serve you
+            Visit our factory or get in touch—we&apos;d love to serve you
           </p>
         </div>
 

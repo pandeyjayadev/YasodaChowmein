@@ -34,7 +34,7 @@ export default function AboutPage() {
             Our <span className="text-orange-500">Story</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From humble beginnings to becoming Bardiya's favorite chowmein destination
+            From humble beginnings to becoming Bardiya&apos;s favorite chowmein destination
           </p>
         </motion.div>
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
                   Culinary visionary with 15+ years experience, blending traditional Nepali flavors with modern techniques to create our signature taste.
                 </p>
                 <div className="mt-6 w-full border-t border-gray-100 pt-6">
-                  <p className="text-sm text-gray-500">"Our mission is to share authentic Nepali flavors with the world"</p>
+                  <p className="text-sm text-gray-500">&quot;Our mission is to share authentic Nepali flavors with the world&quot;</p>
                 </div>
               </div>
             </motion.div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
                   Master chef trained in both Nepali and Asian cuisines, dedicated to perfecting every recipe that comes out of our kitchen.
                 </p>
                 <div className="mt-6 w-full border-t border-gray-100 pt-6">
-                  <p className="text-sm text-gray-500">"Great food starts with passion and the finest ingredients"</p>
+                  <p className="text-sm text-gray-500">&quot;Great food starts with passion and the finest ingredients&quot;</p>
                 </div>
               </div>
             </motion.div>
@@ -120,10 +120,10 @@ export default function AboutPage() {
               >
                 <h2 className="text-3xl font-semibold text-orange-500 mb-6">Our Humble Beginnings</h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  What started as a small family recipe passed down through generations has blossomed into Kathmandu's most beloved chowmein destination. Founded in 2010, Yasoda Chowmein began as a single kitchen with a big dream.
+                  What started as a small family recipe passed down through generations has blossomed into Kathmandu&apos;s most beloved chowmein destination. Founded in 2010, Yasoda Chowmein began as a single kitchen with a big dream.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Through years of perfecting our craft, we've stayed true to our roots while innovating to meet modern tastes. Every dish carries the love and tradition of Nepali home cooking.
+                  Through years of perfecting our craft, we&apos;ve stayed true to our roots while innovating to meet modern tastes. Every dish carries the love and tradition of Nepali home cooking.
                 </p>
                 <div className="mt-8 flex items-center space-x-4">
                   <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">

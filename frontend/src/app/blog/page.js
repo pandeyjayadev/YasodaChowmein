@@ -8,7 +8,7 @@ import { ArrowLeftIcon, CalendarIcon, ClockIcon, UserIcon, PencilSquareIcon } fr
 export default function BlogPostPage({ postId }) {
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false); // Set via auth context later
+  const [isAdmin] = useState(false); // Set via auth context later
 
   // Fetch post data
   useEffect(() => {

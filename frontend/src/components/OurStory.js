@@ -37,7 +37,7 @@ export default function OurStory() {
               Our <span className="text-orange-500">Story</span>
             </h2>
             <p className="text-lg text-gray-600">
-              Founded in 2010, Yasoda Chowmein began as a small family recipe passed down through generations. What started as a humble kitchen experiment became Kathmandu's best-loved noodle sensation.
+              Founded in 2010, Yasoda Chowmein began as a small family recipe passed down through generations. What started as a humble kitchen experiment became Kathmandu&apos;s best-loved noodle sensation.
             </p>
             <div className="space-y-4">
               <div className="flex items-start">

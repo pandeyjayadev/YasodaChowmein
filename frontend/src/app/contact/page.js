@@ -40,10 +40,10 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Let's <span className="text-orange-500">Connect</span>
+            Let&apos;s <span className="text-orange-500">Connect</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We'd love to hear from you. Reach out through any of these channels or drop us a message.
+            We&apos;d love to hear from you. Reach out through any of these channels or drop us a message.
           </p>
         </motion.div>
 
