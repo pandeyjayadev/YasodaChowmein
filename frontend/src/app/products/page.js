@@ -1,8 +1,17 @@
 
-import { products } from '@/lib/products';
+import { fetchFromStrapi } from '@/lib/api';
 import ProductCard from '@/components/ProductCard';
 
-export default function ProductsPage() {
+
+async function getProducts() {
+  const products = await fetchFromStrapi('/products', { populate: '*' });
+  return products;
+}
+
+export default async function ProductsPage() {
+  const products = await getProducts();
+
+
   return (
     <div className="bg-red-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +25,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20">
-          {products.map((product) => (
+          {products?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

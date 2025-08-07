@@ -11,8 +11,6 @@ export const contactInfo = {
 
   },
   openingHours: [
-    { day: "Monday - Friday", hours: "9:00 AM - 10:00 PM" },
-    { day: "Saturday", hours: "10:00 AM - 11:00 PM" },
-    { day: "Sunday", hours: "11:00 AM - 9:00 PM" },
+    { day: "Sunday - Saturday", hours: "9:00 AM - 5:00 PM" },
   ],
 };

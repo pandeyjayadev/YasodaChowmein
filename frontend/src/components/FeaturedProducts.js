@@ -3,10 +3,25 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { featuredProducts } from '@/lib/products';
+import { fetchFromStrapi } from '@/lib/api';
+import { useEffect, useState } from 'react';
+
 import ProductCard from './ProductCard';
 
+
 export default function FeaturedProducts() {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchFeaturedProducts() {
+      const products = await fetchFromStrapi('/products', { populate: '*' });
+      // Assuming the first 3 products are featured
+      setFeaturedProducts(products.slice(0, 3)); 
+    }
+
+    fetchFeaturedProducts();
+  }, []);
+
   return (
     <section className="relative bg-red-50 py-16 md:py-24">
 
@@ -23,7 +38,7 @@ export default function FeaturedProducts() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20">
-          {featuredProducts.map((product) => (
+          {featuredProducts?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

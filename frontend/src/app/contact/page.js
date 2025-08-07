@@ -101,12 +101,6 @@ export default function ContactPage() {
                     {contactInfo.phone.sales}
                   </a>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Support</p>
-                  <a href={`tel:${contactInfo.phone.support}`} className="text-lg font-medium text-gray-900 hover:text-orange-500 transition-colors">
-                    {contactInfo.phone.support}
-                  </a>
-                </div>
               </div>
               <div className="flex space-x-4">
                 <a href="#" className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
@@ -140,12 +134,6 @@ export default function ContactPage() {
                   <p className="text-sm text-gray-500">General inquiries</p>
                   <a href={`mailto:${contactInfo.email.general}`} className="text-lg font-medium text-gray-900 hover:text-orange-500 transition-colors">
                     {contactInfo.email.general}
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Support</p>
-                  <a href={`mailto:${contactInfo.email.support}`} className="text-lg font-medium text-gray-900 hover:text-orange-500 transition-colors">
-                    {contactInfo.email.support}
                   </a>
                 </div>
               </div>
