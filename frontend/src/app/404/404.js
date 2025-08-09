@@ -145,7 +145,7 @@ export default function Animated404Page() {
             Our noodles got twisted and this page went missing!
           </p>
           <p className="text-gray-500">
-            Our chefs are working to untangle this mess. Let's get you back to the good stuff!
+            Our chefs are working to untangle this mess. Let&apos;s get you back to the good stuff!
           </p>
         </div>
 
@@ -206,7 +206,7 @@ export default function Animated404Page() {
             <HeartIcon className="h-10 w-10 text-red-400" />
           </div>
           <h3 className="text-xl font-bold text-gray-800 mb-3">
-            Chef's Secret!
+            Chef&apos;s Secret!
           </h3>
           <p className="text-gray-600 text-sm md:text-base">
             Our signature chowmein sauce contains

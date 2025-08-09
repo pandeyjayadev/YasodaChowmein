@@ -59,7 +59,7 @@ export default function UnderConstructionPage() {
         
         {/* Animated Subheading */}
         <h2 className="text-xl sm:text-2xl text-gray-600 mb-8">
-          We're cooking up something amazing{dots}
+          We&apos;re cooking up something amazing{dots}
         </h2>
 
         {/* Description */}
@@ -67,7 +67,7 @@ export default function UnderConstructionPage() {
           <p className="text-lg text-gray-600 mb-6">
             Our blog is currently being prepared with fresh content, delicious recipes, 
             and stories from our kitchen. Just like our signature Chowmein, 
-            we're taking the time to make it perfect.
+            we&apos;re taking the time to make it perfect.
           </p>
           
           {/* Progress Indicator */}

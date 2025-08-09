@@ -61,7 +61,6 @@ const galleryItems = [
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedId, setSelectedId] = useState(null);
-  const [direction, setDirection] = useState(0);
 
   const filteredItems = activeFilter === 'all' 
     ? galleryItems 
@@ -77,7 +76,6 @@ export default function GalleryPage() {
   ];
 
   const navigate = (newDirection) => {
-    setDirection(newDirection);
     const newIndex = (currentIndex + newDirection + galleryItems.length) % galleryItems.length;
     setSelectedId(galleryItems[newIndex].id);
   };

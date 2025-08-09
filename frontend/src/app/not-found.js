@@ -91,8 +91,8 @@ export default function Animated404Page() {
               Looks like this page got mixed up with our noodles! 
             </p>
             <p className="text-gray-500">
-              The page you're looking for might have been moved, deleted, or perhaps 
-              it's still cooking in our factory. Don't worry - we'll help you find what you need!
+              The page you&apos;re looking for might have been moved, deleted, or perhaps 
+              it&apos;s still cooking in our factory. Don&apos;t worry - we&apos;ll help you find what you need!
             </p>
           </div>
         </div>
@@ -146,14 +146,14 @@ export default function Animated404Page() {
             Fun Fact!
           </h3>
           <p className="text-sm text-gray-600">
-            While you're here, did you know our chowmein are made fresh every morning? 
+            While you&apos;re here, did you know our chowmein are made fresh every morning? 
             Our secret sauce recipe has been passed down through three generations!
           </p>
         </div>
 
         {/* Help Section */}
         <div className="mt-12 animate-fade-in-up delay-800">
-          <p className="text-gray-500 mb-4">Still can't find what you're looking for?</p>
+          <p className="text-gray-500 mb-4">Still can&apos;t find what you&apos;re looking for?</p>
           <Link 
             href="/contact"
             className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium transition-colors"

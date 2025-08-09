@@ -81,7 +81,7 @@ export default function FAQUnderConstructionPage() {
         
         {/* Animated Subheading */}
         <h2 className="text-xl sm:text-2xl text-gray-600 mb-8">
-          We're preparing comprehensive answers{dots}
+          We&apos;re preparing comprehensive answers{dots}
         </h2>
 
         {/* Description */}
@@ -89,7 +89,7 @@ export default function FAQUnderConstructionPage() {
           <p className="text-lg text-gray-600 mb-6">
             Our FAQ section is being carefully crafted to answer all your questions about 
             our raw chowmein noodles, authentic sauces, and vinegar products. From storage 
-            instructions to wholesale inquiries, we've got you covered.
+            instructions to wholesale inquiries, we&apos;ve got you covered.
           </p>
           
           {/* Progress Indicator */}
@@ -102,7 +102,7 @@ export default function FAQUnderConstructionPage() {
         {/* Preview Questions */}
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
-            Questions We're Answering
+            Questions We&apos;re Answering
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {commonQuestions.map((item, index) => (
