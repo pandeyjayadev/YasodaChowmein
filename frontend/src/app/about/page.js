@@ -47,17 +47,17 @@ export default function AboutPage() {
         >
 
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="md:grid-cols-2 gap-8">
             {/* Founder 1 */}
             <motion.div
               variants={fadeIn}
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
             >
-              <div className="p-8 flex flex-col items-center text-center">
+              <div className="p-10 flex flex-col items-center text-center">
                 <div className="relative w-40 h-40 mb-6 rounded-full overflow-hidden border-4 border-orange-100 group-hover:border-orange-300 transition-colors">
                   <Image
                     src="/assets/images/owner.jpg"
-                    alt="Owner 1 Name"
+                    alt="Narayan Bhakt Oli (Founder of yasoda chumin tatha sauce udyog)"
                     fill
                     className="object-cover"
                   />
@@ -89,7 +89,14 @@ export default function AboutPage() {
                 variants={fadeIn}
                 className="lg:w-1/2 p-10 flex flex-col justify-center"
               >
-                <h2 className="text-3xl font-semibold text-orange-500 mb-6">Our Humble Beginnings</h2>
+                   <div className="flex items-center mb-8">
+              <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mr-6">
+                <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-semibold text-gray-900">Our Beginning</h2>
+            </div>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   यासोदा चौमिनको यात्रा सानो सपना बाट सुरु भयो — हाम्रो समुदायलाई स्वादिष्ट र गुणस्तरीय चौमिन र ससका उत्पादनहरू उपलब्ध गराउने लक्ष्यका साथ। चार जना समर्पित कर्मचारी र सानो कार्यस्थलबाट, हामीले प्रत्येक उत्पादन प्रेम र मेहनतका साथ बनाउन सुरु गर्यौं।
 
