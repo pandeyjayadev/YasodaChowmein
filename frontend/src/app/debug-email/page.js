@@ -132,10 +132,10 @@ export default function EmailDebugTest() {
           <h3 className="font-semibold text-yellow-800 mb-2">How to Get Your EmailJS Credentials:</h3>
           <ol className="list-decimal list-inside space-y-1 text-sm text-yellow-700">
             <li>Go to <a href="https://dashboard.emailjs.com" className="underline">EmailJS Dashboard</a></li>
-            <li><strong>Service ID:</strong> Go to "Email Services" → Click your service → Copy Service ID</li>
-            <li><strong>Public Key:</strong> Go to "Account" → "General" → Copy Public Key</li>
-            <li><strong>Template IDs:</strong> Go to "Email Templates" → Copy each Template ID</li>
-            <li>Make sure templates are "Published" not "Draft"</li>
+            <li><strong>Service ID:</strong> Go to &quot;Email Services&quot; → Click your service → Copy Service ID</li>
+            <li><strong>Public Key:</strong> Go to &quot;Account&quot; → &quot;General&quot; → Copy Public Key</li>
+            <li><strong>Template IDs:</strong> Go to &quot;Email Templates&quot; → Copy each Template ID</li>
+            <li>Make sure templates are &quot;Published&quot; not &quot;Draft&quot;</li>
           </ol>
         </div>
       </div>

@@ -262,7 +262,7 @@ export default function OrderPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
               <p className="text-gray-600 mb-6">
-                Thank you for your order. We've sent a confirmation to your email.
+                Thank you for your order. We&apos;ve sent a confirmation to your email.
               </p>
               <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
                 <h4 className="font-medium text-gray-800 mb-2">Order Summary</h4>
