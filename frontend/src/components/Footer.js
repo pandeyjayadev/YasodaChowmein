@@ -20,7 +20,7 @@ export default function Footer() {
       title: 'Support',
       links: [
         { href: '/faq', label: 'FAQ' },
-        { href: '/shipping', label: 'Shipping Policy' },
+        { href: '/order', label: 'Order' },
         { href: '/returns', label: 'Returns' },
         { href: '/contact', label: 'Contact' },
       ],
@@ -28,15 +28,14 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: <FaInstagram />, href: '#', label: 'Instagram' },
-    { icon: <FaFacebookF />, href: '#', label: 'Facebook' },
-    { icon: <FaTwitter />, href: '#', label: 'Twitter' },
-    { icon: <FaYoutube />, href: '#', label: 'YouTube' },
+    { icon: <FaInstagram />, href: 'https://www.facebook.com/people/Yasoda-Chumin-Tatha-Sauce-Udyog/61578874444509/?rdid=2kU8nfnsVT8m42OI&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Qj47duB5v%2F', label: 'Instagram' },
+    { icon: <FaFacebookF />, href: 'https://www.facebook.com/people/Yasoda-Chumin-Tatha-Sauce-Udyog/61578874444509/?rdid=2kU8nfnsVT8m42OI&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Qj47duB5v%2F', label: 'Facebook' },
+    { icon: <FaYoutube />, href: 'https://www.facebook.com/people/Yasoda-Chumin-Tatha-Sauce-Udyog/61578874444509/?rdid=2kU8nfnsVT8m42OI&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Qj47duB5v%2F', label: 'YouTube' },
   ];
 
   const contactInfo = [
     { icon: <FaPhoneAlt />, text: '+977 9804583067' },
-    { icon: <FaEnvelope />, text: 'yaodachumintathasauceudyog@gmail.com' },
+    { icon: <FaEnvelope />, text: 'yasodachumintathasauceudyog@gmail.com' },
     { icon: <FaMapMarkerAlt />, text: 'Madhuban, 06, Sanoshree, Bardiya, Nepal' },
   ];
 
@@ -119,21 +118,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-
-            {/* Newsletter */}
-            {/* <div className="pt-2">
-              <h4 className="font-medium mb-3">Join Our Newsletter</h4>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-white/10 border border-orange-300/30 rounded-l-lg px-4 py-2.5 w-full focus:outline-none focus:ring-2 focus:ring-amber-300 placeholder-orange-200"
-                />
-                <button className="bg-amber-500 hover:bg-amber-400 text-white px-4 rounded-r-lg transition-colors font-medium">
-                  Join
-                </button>
-              </div>
-            </div> */}
           </div>
         </div>
 

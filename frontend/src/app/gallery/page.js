@@ -8,17 +8,17 @@ import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 const galleryItems = [
   {
     id: 1,
-    title: "Delicious Chowmein",
-    category: "product",
-    image: "/assets/images/Chowmein.jpg",
-    description: "A plate of freshly made, delicious chowmein."
+    title: "Our Banner",
+    category: "other",
+    image: "/assets/images/IMG_20250806_162744.jpg",
+    description: "Showcase banner"
   },
   {
     id: 2,
-    title: "Sauce Collection",
-    category: "product",
+    title: "Company Logo",
+    category: "other",
     image: "/assets/images/collection_of_sauce.jpg",
-    description: "A vibrant collection of our signature sauces."
+    description: "Our logo"
   },
   {
     id: 3,
@@ -55,7 +55,120 @@ const galleryItems = [
     category: "product",
     image: "/assets/images/IMG_20250806_144600.jpg",
     description: "Our products packed and ready for delivery."
-  }
+  },
+
+    {
+    id: 9,
+    title: "",
+    category: "ambience",
+    image: "/assets/images/IMG_20250807_130919.jpg",
+    description: ""
+  },
+
+   {
+    id: 10,
+    title: "",
+    category: "ambience",
+    image: "/assets/images/IMG_20250807_130938.jpg",
+    description: ""
+  },
+
+   {
+    id: 11,
+    title: "",
+    category: "ambience",
+    image: "/assets/images/IMG_20250807_130859.jpg",
+    description: ""
+  },
+
+   {
+    id: 12,
+    title: "",
+    category: "ambience",
+    image: "/assets/images/IMG_20250807_061108.jpg",
+    description: ""
+  },
+
+   {
+    id: 13,
+    title: "",
+    category: "ambience",
+    image: "/assets/images/IMG_20250807_062044.jpg",
+    description: ""
+  },
+
+   {
+    id: 14,
+    title: "",
+    category: "ambience",
+    image: "/assets/images/IMG_20250807_062757.jpg",
+    description: ""
+  },
+
+   {
+    id: 15,
+    title: "",
+    category: "delivery",
+    image: "/assets/images/IMG_20250807_072504.jpg",
+    description: ""
+  },
+
+
+   {
+    id: 16,
+    title: "",
+    category: "delivery",
+    image: "/assets/images/IMG_20250807_072747.jpg",
+    description: ""
+  },
+
+   {
+    id: 17,
+    title: "",
+    category: "delivery",
+    image: "/assets/images/IMG_20250807_073618.jpg",
+    description: ""
+  },
+
+   {
+    id: 18,
+    title: "",
+    category: "delivery",
+    image: "/assets/images/IMG_20250807_073153.jpg",
+    description: ""
+  },
+
+   {
+    id: 19,
+    title: "",
+    category: "employ",
+    image: "/assets/images/IMG_20250807_154858.jpg",
+    description: ""
+  },
+  
+   {
+    id: 20,
+    title: "",
+    category: "employ",
+    image: "/assets/images/IMG_20250807_154920.jpg",
+    description: ""
+  },
+
+   {
+    id: 21,
+    title: "",
+    category: "employ",
+    image: "/assets/images/IMG_20250807_154939.jpg",
+    description: ""
+  },
+
+   {
+    id: 22,
+    title: "",
+    category: "employ",
+    image: "/assets/images/IMG_20250807_165226.jpg",
+    description: ""
+  },
 ];
 
 export default function GalleryPage() {
@@ -72,7 +185,10 @@ export default function GalleryPage() {
   const categories = [
     { id: 'all', name: 'All' },
     { id: 'product', name: 'Product' },
-    { id: 'ambience', name: 'Ambience' }
+    { id: 'ambience', name: 'Ambience' },
+    { id: 'delivery', name: 'Delivery' },
+    { id: 'employ', name: 'Employ' },
+    { id: 'other', name: 'Other' }
   ];
 
   const navigate = (newDirection) => {

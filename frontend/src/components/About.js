@@ -53,8 +53,11 @@ export default function ContactAbout() {
               ))}
             </div>
             <div className="mt-6">
-              <button className="w-full py-2 px-4 bg-transparent border border-orange-500 rounded-md text-orange-500 hover:bg-orange-500 hover:text-white text-center font-medium transition-colors shadow-md hover:shadow-lg">
-                Make Reservation
+                <button 
+                onClick={() => window.location.href = '/order'}
+                className="w-full py-2 px-4 bg-transparent border border-orange-500 rounded-md text-orange-500 hover:bg-orange-500 hover:text-white text-center font-medium transition-colors shadow-md hover:shadow-lg"
+              >
+                Order Now
               </button>
             </div>
           </div>
