@@ -75,6 +75,9 @@ export default function Navbar() {
               href="/" 
               className="flex items-center space-x-2"
             >
+              <div className='max-w-8' >
+                <img src='/assets/images/logo.png'></img>
+              </div>
               <span className={`text-2xl font-extrabold tracking-tight transition-all duration-300 ${
                 isHomePage && !scrolled
                   ? 'text-white drop-shadow-lg hover:text-amber-200'

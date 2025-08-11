@@ -2,8 +2,7 @@ import HeroSection from "../components/Hero";
 import OurStory from "../components/OurStory";
 import FeaturedProducts from "../components/FeaturedProducts";
 import AboutPreview from "../components/About";
-
-import GalleryPage from "./gallery/page";
+import HomeGallerySection from "@/components/HomeGallerySection";
 
 export default function Home() {
   return (
@@ -12,7 +11,7 @@ export default function Home() {
       <OurStory />
       <FeaturedProducts />
       <AboutPreview />
-      <GalleryPage />
+      <HomeGallerySection />
     </>
   );
 }

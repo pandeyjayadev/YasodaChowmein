@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { useState, useEffect, useRef } from 'react';
+import { FiX, FiChevronLeft, FiChevronRight, FiMaximize, FiMinimize } from 'react-icons/fi';
 
 const galleryItems = [
   {
@@ -34,7 +34,6 @@ const galleryItems = [
     image: "/assets/images/IMG_20250806_134702.jpg",
     description: ""
   },
-
   {
     id: 6,
     title: "Vegetable chatani sauce",
@@ -56,117 +55,109 @@ const galleryItems = [
     image: "/assets/images/IMG_20250806_144600.jpg",
     description: "Our products packed and ready for delivery."
   },
-
-    {
+  {
     id: 9,
     title: "",
     category: "ambience",
     image: "/assets/images/IMG_20250807_130919.jpg",
     description: ""
   },
-
-   {
+  {
     id: 10,
     title: "",
     category: "ambience",
     image: "/assets/images/IMG_20250807_130938.jpg",
     description: ""
   },
-
-   {
+  {
     id: 11,
     title: "",
     category: "ambience",
     image: "/assets/images/IMG_20250807_130859.jpg",
     description: ""
   },
-
-   {
+  {
     id: 12,
     title: "",
     category: "ambience",
     image: "/assets/images/IMG_20250807_061108.jpg",
     description: ""
   },
-
-   {
+  {
     id: 13,
     title: "",
     category: "ambience",
     image: "/assets/images/IMG_20250807_062044.jpg",
     description: ""
   },
-
-   {
+  {
     id: 14,
     title: "",
     category: "ambience",
     image: "/assets/images/IMG_20250807_062757.jpg",
     description: ""
   },
-
-   {
+  {
     id: 15,
     title: "",
     category: "delivery",
     image: "/assets/images/IMG_20250807_072504.jpg",
     description: ""
   },
-
-
-   {
+  {
     id: 16,
     title: "",
     category: "delivery",
     image: "/assets/images/IMG_20250807_072747.jpg",
     description: ""
   },
-
-   {
+  {
     id: 17,
     title: "",
     category: "delivery",
     image: "/assets/images/IMG_20250807_073618.jpg",
     description: ""
   },
-
-   {
+  {
     id: 18,
     title: "",
     category: "delivery",
     image: "/assets/images/IMG_20250807_073153.jpg",
     description: ""
   },
-
-   {
+  {
     id: 19,
     title: "",
-    category: "employ",
+    category: "employe",
     image: "/assets/images/IMG_20250807_154858.jpg",
     description: ""
   },
-  
-   {
+  {
     id: 20,
     title: "",
-    category: "employ",
+    category: "employe",
     image: "/assets/images/IMG_20250807_154920.jpg",
     description: ""
   },
-
-   {
+  {
     id: 21,
     title: "",
-    category: "employ",
+    category: "employe",
     image: "/assets/images/IMG_20250807_154939.jpg",
     description: ""
   },
-
-   {
+  {
     id: 22,
     title: "",
-    category: "employ",
+    category: "employe",
     image: "/assets/images/IMG_20250807_165226.jpg",
+    description: ""
+  },
+  {
+    id: 23,
+    title: "",
+    category: "other",
+    image: "/assets/images/logo.png",
     description: ""
   },
 ];
@@ -174,6 +165,9 @@ const galleryItems = [
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedId, setSelectedId] = useState(null);
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const modalRef = useRef(null);
 
   const filteredItems = activeFilter === 'all' 
     ? galleryItems 
@@ -187,7 +181,7 @@ export default function GalleryPage() {
     { id: 'product', name: 'Product' },
     { id: 'ambience', name: 'Ambience' },
     { id: 'delivery', name: 'Delivery' },
-    { id: 'employ', name: 'Employ' },
+    { id: 'employe', name: 'Employe' },
     { id: 'other', name: 'Other' }
   ];
 
@@ -195,6 +189,90 @@ export default function GalleryPage() {
     const newIndex = (currentIndex + newDirection + galleryItems.length) % galleryItems.length;
     setSelectedId(galleryItems[newIndex].id);
   };
+
+  const toggleFullscreen = () => {
+    if (!modalRef.current) return;
+    
+    if (!isFullscreen) {
+      if (modalRef.current.requestFullscreen) {
+        modalRef.current.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else if (modalRef.current.webkitRequestFullscreen) {
+        // Safari
+        modalRef.current.webkitRequestFullscreen();
+      } else if (modalRef.current.msRequestFullscreen) {
+        // IE11
+        modalRef.current.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        // Safari
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        // IE11
+        document.msExitFullscreen();
+      }
+    }
+  };
+
+  // Handle fullscreen change events
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(
+        document.fullscreenElement || 
+        document.webkitFullscreenElement || 
+        document.msFullscreenElement
+      );
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+    };
+  }, []);
+
+  // Handle ESC key to exit fullscreen
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        toggleFullscreen();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen]);
+
+  useEffect(() => {
+    if (!selectedId) return;
+    
+    setImageDimensions({ width: 0, height: 0 });
+    
+    const imageItem = galleryItems.find(item => item.id === selectedId);
+    if (!imageItem) return;
+
+    const img = document.createElement('img');
+    img.src = imageItem.image;
+    
+    img.onload = () => {
+      setImageDimensions({
+        width: img.naturalWidth,
+        height: img.naturalHeight
+      });
+    };
+    
+    img.onerror = () => {
+      console.error("Failed to load image:", imageItem.image);
+    };
+  }, [selectedId]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-25 px-4 sm:px-6 lg:px-8">
@@ -316,26 +394,48 @@ export default function GalleryPage() {
             onClick={() => setSelectedId(null)}
           >
             <motion.div 
-              className="relative max-w-6xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl"
+              ref={modalRef}
+              className={`relative w-full bg-white overflow-hidden shadow-2xl ${
+                isFullscreen 
+                  ? 'fixed inset-0 h-screen w-screen rounded-none' 
+                  : 'max-w-6xl rounded-3xl'
+              }`}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               layoutId={`card-${selectedId}`}
             >
-              <button 
-                className="absolute top-6 right-6 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-colors"
-                onClick={() => setSelectedId(null)}
-              >
-                <FiX className="w-6 h-6 text-gray-800" />
-              </button>
+              <div className="absolute top-6 right-6 z-10 flex gap-2">
+                {/* Fullscreen Toggle Button */}
+                <button 
+                  className="p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFullscreen();
+                  }}
+                >
+                  {isFullscreen 
+                    ? <FiMinimize className="w-6 h-6 text-gray-800" /> 
+                    : <FiMaximize className="w-6 h-6 text-gray-800" />
+                  }
+                </button>
+                
+                {/* Close Button */}
+                <button 
+                  className="p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+                  onClick={() => setSelectedId(null)}
+                >
+                  <FiX className="w-6 h-6 text-gray-800" />
+                </button>
+              </div>
               
-              <div className="aspect-[16/9] relative">
+              <div className={`relative ${isFullscreen ? 'h-full' : 'aspect-[16/9]'}`}>
                 <Image
                   src={selectedImage.image}
                   alt={selectedImage.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
                 <button 
@@ -352,20 +452,29 @@ export default function GalleryPage() {
                 </button>
               </div>
               
-              <div className="p-8">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedImage.title}</h2>
-                    <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full capitalize">
-                      {selectedImage.category}
-                    </span>
+              {!isFullscreen && (
+                <div className="p-8">
+                  <div className="flex flex-wrap justify-between items-start gap-4">
+                    <div>
+                      <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedImage.title}</h2>
+                      <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full capitalize">
+                        {selectedImage.category}
+                      </span>
+                    </div>
+                    <div className="text-gray-500 text-sm text-right">
+                      <div>
+                        {currentIndex + 1} / {galleryItems.length}
+                      </div>
+                      {imageDimensions.width > 0 && (
+                        <div className="mt-1">
+                          {imageDimensions.width} × {imageDimensions.height}px
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="text-gray-500 text-sm">
-                    {currentIndex + 1} / {galleryItems.length}
-                  </div>
+                  <p className="mt-6 text-gray-600 text-lg leading-relaxed">{selectedImage.description}</p>
                 </div>
-                <p className="mt-6 text-gray-600 text-lg leading-relaxed">{selectedImage.description}</p>
-              </div>
+              )}
             </motion.div>
           </motion.div>
         )}
